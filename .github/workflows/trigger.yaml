@@ -11,8 +11,12 @@ jobs:
     name: Dispatch event
 
     steps:
+    - name: Get version info
+      id:   tag 
+      run:  echo ::set-output name=TAG::${GITHUB_REF#refs/tags/}
     - uses: juztcode/repo-ditpatch-action@v1
       with:
         event-type: release_event
         token: ${{ secrets.REPO_TRIGGER_KEY }}
         repository: richardmarston/xml2md
+        client-payload: '{"tag": "${{ steps.tag.outputs.TAG }}" }'
