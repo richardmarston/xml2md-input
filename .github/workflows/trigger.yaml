@@ -1,5 +1,4 @@
 name: Trigger xml2md
-description: 'Trigger conversion'
 
 on:
   push:
