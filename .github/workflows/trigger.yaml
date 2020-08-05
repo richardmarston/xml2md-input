@@ -4,7 +4,7 @@ description: 'Trigger conversion'
 on:
   push:
     tags:
-      - *
+      - 'test-*'
 
 jobs:
   dispatch_event:
