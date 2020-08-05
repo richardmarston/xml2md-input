@@ -1,0 +1,19 @@
+name: Trigger xml2md
+description: 'Trigger conversion'
+
+on:
+  push:
+    tags:
+      - *
+
+jobs:
+  dispatch_event:
+    runs-on: ubuntu-latest
+    name: Dispatch event
+
+    steps:
+    - uses: juztcode/repo-ditpatch-action@v1
+      with:
+        event-type: test_event
+        token: ${{ secrets.REPO_TRIGGER_KEY }}
+        repository: richardmarston/xml2md
